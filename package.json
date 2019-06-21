@@ -2,7 +2,14 @@
   "name": "javascript-development-environment",
   "version": "1.0.0",
   "description": "JavaScript development environment Pluralsight course by Cory House",
-  "scripts": {},
+  "scripts": {
+    "prestart": "node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "node buildScripts/srcServer.js",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "localtunnel": "lt --port 3000",
+    "security-check": "nsp check"
+  },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
@@ -22,7 +29,7 @@
     "css-loader": "0.25.0",
     "eslint": "3.8.1",
     "eslint-plugin-import": "2.0.1",
-    "eslint-watch": "2.1.14",
+    "eslint-watch": "2.1.14", 
     "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
     "html-webpack-plugin": "2.22.0",
